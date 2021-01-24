@@ -1,0 +1,32 @@
+const Discord = require('discord.js');
+const loglar = require('../loglar.json')
+
+var prefix = loglar.prefix;
+
+exports.run = async (client, message, params, args) => {
+
+	const eğlence = new  Discord.RichEmbed()
+	.setColor()
+	.setAuthor(`Neptune`, client.user.avatarURL)
+	.setThumbnail(client.user.avatarURL)
+	.addField(`Eğlence Komutları`, `**d!atatürk-gif** = Atatürk İle İlgili Gif Atar. \n**d!avatar** = Avatarını Atar. \n**d!davet** = Botun Davet Linkini Atar. \n**d!balık-tut** = Balık Tutarsınız. \n**d!koş** = Koşarsınız. \n**d!8ball** = Bota Soru Sorarsınız. \n**d!disco** = Discooo. \n**d!simit** = Simit Yersiniz. \n**d!wanted** = Wanted Fotosu Atar. \n**d!çayiç** = Çay İçersiniz. \n**d!troll** = Trollendinn.`)
+    .setFooter(`${message.author.username} Tarafından İstendi.`, message.author.avatarURL)
+
+    return message.channel.sendEmbed(eğlence);
+
+};
+
+
+
+exports.conf = {
+  enabled: true,
+  guildOnly: true,
+  aliases: ['eğlence'],
+  permLevel: 0
+};
+
+exports.help = {
+  name: 'eğlence',
+  description: 'Eğlence Komutları.',
+  usage: 'eğlence'
+};
